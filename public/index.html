@@ -1,0 +1,107 @@
+<!doctype html>
+<html ng-app="covargoApp">
+<head>
+	<title>Covargo</title>
+	<base href="/">
+	<!--<link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css">-->
+	<script src="./js/bower_components/angular/angular.min.js"></script>
+	<script src="./js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<!--<script src="./bower_components/angular-route/angular-route.min.js"></script>-->
+	<script src="./app.js"></script>
+	<script src="./js/controllers/CreateArticleController.js"></script>
+	<script src="./js/controllers/HomeController.js"></script>
+</head>
+
+<body>
+<h1>Welcome to Covargo Hacker News !</h1>
+
+<a ui-sref="home">Home</a>
+<a ui-sref="create">Create new article</a>
+
+<ui-view></ui-view>
+</body>
+</html>
+
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<!--<html ng-app="scotchTodo">-->
+<!--<head>-->
+	<!--&lt;!&ndash; META &ndash;&gt;-->
+	<!--<meta charset="utf-8">-->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1">&lt;!&ndash; Optimize mobile viewport &ndash;&gt;-->
+
+	<!--<title>Node/Angular Todo App</title>-->
+
+	<!--&lt;!&ndash; SCROLLS &ndash;&gt;-->
+	<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">&lt;!&ndash; load bootstrap &ndash;&gt;-->
+	<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">-->
+	<!--<style>-->
+		<!--html 					{ overflow-y:scroll; }-->
+		<!--body 					{ padding-top:50px; }-->
+		<!--#todo-list 				{ margin-bottom:30px; }-->
+		<!--#todo-form 	 			{ margin-bottom:50px; }-->
+	<!--</style>-->
+
+	<!--&lt;!&ndash; SPELLS &ndash;&gt;-->
+	<!--<script src="../js/bower_components/angular/angular.min.js"></script>&lt;!&ndash; load angular &ndash;&gt;-->
+
+	<!--<script src="./js/controllers/main.js"></script> &lt;!&ndash; load up our controller &ndash;&gt;-->
+	<!--<script src="./js/services/todos.js"></script> &lt;!&ndash; load our todo service &ndash;&gt;-->
+	<!--<script src="./js/core.js"></script> &lt;!&ndash; load our main application &ndash;&gt;-->
+
+<!--</head>-->
+<!--&lt;!&ndash; SET THE CONTROLLER &ndash;&gt;-->
+<!--<body ng-controller="mainController">-->
+	<!--<div class="container">-->
+
+		<!--&lt;!&ndash; HEADER AND TODO COUNT &ndash;&gt;-->
+		<!--<div class="jumbotron text-center">-->
+			<!--<h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>-->
+		<!--</div>-->
+
+		<!--&lt;!&ndash; TODO LIST &ndash;&gt;-->
+		<!--<div id="todo-list" class="row">-->
+			<!--<div class="col-sm-4 col-sm-offset-4">-->
+
+
+
+				<!--&lt;!&ndash; LOOP OVER THE TODOS IN $scope.todos &ndash;&gt;-->
+				<!--<div class="checkbox" ng-repeat="todo in todos">-->
+					<!--<label>-->
+						<!--<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}-->
+					<!--</label>-->
+				<!--</div>-->
+
+				<!--<p class="text-center" ng-show="loading">-->
+					<!--<span class="fa fa-spinner fa-spin fa-3x"></span>-->
+				<!--</p>-->
+
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--&lt;!&ndash; FORM TO CREATE TODOS &ndash;&gt;-->
+		<!--<div id="todo-form" class="row">-->
+			<!--<div class="col-sm-8 col-sm-offset-2 text-center">-->
+				<!--<form>-->
+					<!--<div class="form-group">-->
+
+						<!--&lt;!&ndash; BIND THIS VALUE TO formData.text IN ANGULAR &ndash;&gt;-->
+						<!--<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">-->
+					<!--</div>-->
+
+					<!--&lt;!&ndash; createToDo() WILL CREATE NEW TODOS &ndash;&gt;-->
+					<!--<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>-->
+				<!--</form>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="text-center text-muted">-->
+			<!--<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>-->
+			<!--<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>-->
+		<!--</div>-->
+
+	<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->

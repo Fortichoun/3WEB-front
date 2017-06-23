@@ -1,0 +1,40 @@
+<body>
+<div ng-controller="CreateArticleController">
+    <h2>Enter the information to create your article</h2>
+
+    <form name="createForm" ng-submit="create(createForm)" novalidate>
+
+        <input type="text" required placeholder="Title" name="title"
+               ng-model="information.title">
+        <span style="color:red" ng-show="createForm.$submitted && createForm.title.$invalid ">
+            Please complete this field.
+        </span>
+        <br/>
+        <br/>
+        <input type="text" required placeholder="Url" name="url"
+               ng-model="information.url">
+        <span style="color:red" ng-show="createForm.$submitted && createForm.url.$invalid">
+            Please complete this field.
+        </span>
+        <br/>
+        <br/>
+
+        <input type="text" required placeholder="User name" name="user"
+               ng-model="information.user">
+        <span style="color:red" ng-show="createForm.$submitted && createForm.user.$invalid">
+            Please complete this field.
+        </span>
+        <br/>
+        <br/>
+
+        <button type="submit">Submit Article</button>
+
+    </form>
+</div>
+</body>
+
+<style>
+    input {
+        width: 400px;
+    }
+</style>
