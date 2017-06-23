@@ -5,7 +5,7 @@ angular.module('covargoApp')
       angular.element(() => {
         $http({
           method: 'GET',
-          url: `http://${HOST_CONFIG.url}:3000/api/articles`,
+          url: `http://${HOST_CONFIG.url}:${HOST_CONFIG.port}/api/articles`,
         },
         )
           .then((articles) => {
@@ -14,7 +14,7 @@ angular.module('covargoApp')
           });
       });
       $scope.vote = (article, vote) => {
-        $http.post(`http://${HOST_CONFIG.url}:3000/api/articles/patchVote`, {
+        $http.post(`http://${HOST_CONFIG.url}:${HOST_CONFIG.port}/api/articles/patchVote`, {
           articleId: article._id,
           vote,
         })

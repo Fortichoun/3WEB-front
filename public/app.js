@@ -1,7 +1,8 @@
- angular
+angular
   .module('covargoApp', ['ui.router'])
   .constant('HOST_CONFIG', {
     url: 'localhost',
+    port: '3000',
   })
   .config(($locationProvider, $stateProvider) => {
     // UI-Router, defines the routes

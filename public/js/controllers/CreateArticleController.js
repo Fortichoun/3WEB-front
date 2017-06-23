@@ -6,7 +6,7 @@ angular.module('covargoApp')
       // This function is called when the user create a new article
       $scope.create = (createForm) => {
         if (createForm.$valid) {
-          $http.post(`http://${HOST_CONFIG.url}:3000/api/articles`, {
+          $http.post(`http://${HOST_CONFIG.url}:${HOST_CONFIG.port}/api/articles`, {
             title: $scope.information.title,
             url: $scope.information.url,
             user: $scope.information.user,
