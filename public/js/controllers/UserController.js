@@ -1,7 +1,7 @@
 angular.module('battleSup')
 // This controller handle the user login/registration
   .controller('UserController',
-    ($scope, $http, $location, $state, $document, HOST_CONFIG) => {
+    ($scope, $http, $location, $state, HOST_CONFIG) => {
       $scope.information = {};
       $scope.credentials = {};
       $scope.errorMessage = '';
@@ -61,9 +61,9 @@ angular.module('battleSup')
         if (modificationForm.$valid) {
           $http.post(`http://${HOST_CONFIG.url}:3000/api/settings`, {
             userId: $scope.user._id,
-            newUserName: $document.getElementById('userName').value,
-            newBio: $document.getElementById('bio').value,
-            newBirthDate: $document.getElementById('birthDate').value,
+            newUserName: document.getElementById('userName').value,
+            newBio: document.getElementById('bio').value,
+            newBirthDate: document.getElementById('birthDate').value,
           })
             .then((response) => {
               $scope.modificationMessage = 'Informations are updated';
