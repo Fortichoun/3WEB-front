@@ -1,6 +1,3 @@
 {
-  "port": 8000,
-  "mongodb": {
-    "uri": "mongodb://localhost/battleshipdb"
-  }
+  "port": 8000
 }

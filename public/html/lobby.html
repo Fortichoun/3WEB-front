@@ -1,0 +1,75 @@
+<body>
+<div ng-controller="ChatController">
+    <div class="chat-panel">
+        <div class="col-md-8">
+            <div id="chat-zone" class="panel panel-default panel-custom panel-height" style="overflow-y: scroll">
+                <div ng-repeat="message in messages">
+                    <p class="message">{{message.user.userName}} : <span ng-bind-html="message.content | linky | enclosing | emojify"></span> <span class="pull-right">{{message.createdAt | date : "MM/dd/yy | HH:mm"}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 background-glycine">
+            <div class="panel-height participants">
+                <h2>Participants :</h2>
+                <div>{{user.userName}} (You)</div>
+                <div ng-repeat="contact in room.users">
+                    <select class="usersInRoom" ng-if="contact._id._id !== user._id" id="select{{contact._id._id}}" ng-model="selectOption" ng-change="optionSelected(this)">
+                        <option value="" ng-selected="selected" disabled hidden>{{contact._id.userName}}</option>
+                        <option value="1">Chat with {{contact._id.userName}}</option>
+                        <option value="2">See profile</option>
+                        <option ng-if="!isFriend(contact._id._id)" value="3">Add him to contacts list</option>
+                        <option ng-if="isFriend(contact._id._id)" value="4">Remove him from contacts list</option>
+                    </select>
+                    <span class="friend" ng-if="contact._id._id !== user._id && isFriend(contact._id._id)">(friend)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default panel-custom messages-panel">
+            <label>Message : <input type="text" ng-model="message"/></label>
+            <span emoji-picker="message" placement="right" title="Emoji"></span>
+            <button ng-click="sendMessage(message)">Send Message</button>
+
+            <div class="status btn-game">
+                <a ui-sref="login"><i class="fa fa-plus" aria-hidden="true"></i> Create a game</a> -
+                <a ui-sref="login"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Join a game</a>
+                <!--<p ng-if="user">You are connected with : {{user.userName}}</p>-->
+                <!--<a ng-click='disconnect()' ui-sref="login">Log out  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class = "modal fade" id = "myModal" tabindex = "-1" role = "dialog"
+         aria-labelledby = "myModalLabel" aria-hidden = "true">
+
+        <div class = "modal-dialog">
+            <div class = "modal-content">
+
+
+                <div class = "modal-header">
+                    <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
+                        &times;
+                    </button>
+
+                    <h4 class = "modal-title" id = "myModalLabel">
+                        {{contactProfile.userName}}'s Profile
+                    </h4>
+                </div>
+
+                <div class = "modal-body">
+
+                    <div>Email : {{contactProfile.email}}</div>
+                    <br/>
+
+                    <div>Birth date : {{contactProfile.birthDate ?  (contactProfile.birthDate | date : "MM/dd/yyyy") : "Not informed yet"}}</div>
+                    <br/>
+
+                    <div>Bio : {{contactProfile.bio ? contactProfile.bio : "Not informed yet"}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+

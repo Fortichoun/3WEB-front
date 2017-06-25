@@ -1,0 +1,38 @@
+<body>
+<div class="userProfile">
+    <form name="modificationForm" ng-submit="modify(modificationForm)" novalidate>
+
+        <label>Username :</label>
+        <input type="text" required id="userName" name="userName" value="{{user.userName}}">
+
+        <br/>
+        <br/>
+
+        <label>Date of birth:</label>
+        <input type="text" placeholder="MM/DD/YYYY" name="birthDate" id="birthDate"
+               ng-pattern="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19\d{2}|20[0-1][0-7])$/">
+        <span style="color:red" ng-show="registerForm.$submitted && registerForm.birthDate.$invalid ">
+            The date of birth is invalid.
+        </span>
+
+        <br/>
+        <br/>
+
+        <label for="bio">Bio :</label>
+        <textarea id="bio" name="bio" ng-maxlength="100" >{{user.bio}}
+        </textarea>
+
+        <br/>
+        <br/>
+
+        <button type="submit">Save modifications</button>
+
+        <span style="color:red">
+         {{errorSaveMessage}}
+        </span>
+        <span ng-if="modificationMessage">{{modificationMessage}}</span>
+    </form>
+    <br/>
+    <div><strong>Email :</strong>   {{user.email}}</div>
+</div>
+</body>
