@@ -1,33 +1,19 @@
 <body>
-    <div>
-        <h2>Share, vote and comment !</h2>
-        <div>Filter by <button ng-click="changeFilter('-vote')">Vote</button> - <button ng-click="changeFilter('-createdAt')">Date</button></div>
+    <div class="presentation">
+        <h2>"<a href="https://en.wikipedia.org/wiki/Battleship_(game)" target="_blank">Battleship</a> (also Battleships or Sea Battle) is a guessing game for two players.
+            It is played on ruled grids (paper or board) on which the players' fleets of ships (including battleships) are marked.
+            The locations of the fleet are concealed from the other player.
+            Players alternate turns calling "shots" at the other player's ships, and the objective of the game is to destroy the opposing player's fleet.!"
+        </h2>
+        <h3><i>[From Wikipedia, the free encyclopedia]</i></h3>
+    </div>
 
-        <div ng-repeat="article in dataArray | orderBy:propertyName">
-            <h3><a target="_blank" href="{{article.url}}">{{$index + 1}} - {{article.title}}</a></h3>
-            <div class ="title">
-                <button class="vote" ng-click="vote(article, 1)"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                <button class="vote" ng-click="vote(article, -1)"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
-                {{article.vote}}
-            </div>
-            <div>Created the {{article.createdAt | date: 'MMM d, y h:mm:ss a'}} by {{article.creator}}</div>
-        </div>
+    <div class="about">
+        <h1>About</h1>
+        <h3>
+            Calex is a startup specialized in web development.
+            This website offer you a demo of the classic game <a href="https://en.wikipedia.org/wiki/Battleship_(game)" target="_blank">Battleship</a>.
+            Please enjoy this web application and send your feedbacks to hello@calex.com
+        </h3>
     </div>
 </body>
-
-<style>
-    .vote {
-        background: none;
-        border: none;
-        margin: 0;
-        padding: 0;
-        cursor:pointer
-    }
-    .title {
-        display: inline-block;
-    }
-    h3 {
-        display: inline-block;
-        margin-right: 10px;
-    }
-</style>

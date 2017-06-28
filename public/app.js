@@ -29,6 +29,10 @@ angular
         url: '/settings',
         templateUrl: 'html/settings.html',
       })
+      .state('leaderBoard', {
+        url: '/leaderBoard',
+        templateUrl: 'html/leaderBoard.html',
+      })
       .state('game', {
         url: '/game/{roomId}',
         templateUrl: 'html/game.html',
@@ -38,7 +42,6 @@ angular
         url: '*path',
         templateUrl: 'html/home.html',
       });
-
 
     $locationProvider.html5Mode(true).hashPrefix('');
   })

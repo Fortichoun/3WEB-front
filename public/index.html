@@ -16,10 +16,10 @@
     <script src="./js/bower_components/angular-emoji-picker/dist/js/emoji-picker.js"></script>
     <script src="./js/bower_components/angular-filter/dist/angular-filter.min.js"></script>
     <script src="./app.js"></script>
-	<!--<script src="./js/controllers/HomeController.js"></script>-->
     <script src="./js/controllers/UserController.js"></script>
     <script src="./js/controllers/ChatController.js"></script>
     <script src="./js/controllers/GameController.js"></script>
+    <script src="./js/controllers/LeaderBoardController.js"></script>
 </head>
 
 <body ng-controller="UserController">
@@ -37,6 +37,7 @@
         <div class="tabs">
             <a ui-sref="home">Home</a>
             <a ng-if="user" ui-sref="lobby">Lobby</a>
+            <a ng-if="user" ui-sref="leaderBoard">LeaderBoard</a>
             <a ng-if="user" ui-sref="settings">Settings</a>
         </div>
     </div>
