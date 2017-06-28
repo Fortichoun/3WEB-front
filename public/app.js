@@ -29,6 +29,11 @@ angular
         url: '/settings',
         templateUrl: 'html/settings.html',
       })
+      .state('game', {
+        url: '/game/{roomId}',
+        templateUrl: 'html/game.html',
+        params: { room: null },
+      })
       .state('otherwise', {
         url: '*path',
         templateUrl: 'html/home.html',

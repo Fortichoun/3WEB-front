@@ -8,8 +8,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 background-glycine">
-            <div class="panel-height participants">
+        <div class="col-md-4">
+            <div class="panel-height">
                 <h2>Participants :</h2>
                 <div>{{user.userName}} (You)</div>
                 <div ng-repeat="contact in room.users">
@@ -31,15 +31,15 @@
             <button ng-click="sendMessage(message)">Send Message</button>
 
             <div class="status btn-game">
-                <a ui-sref="login"><i class="fa fa-plus" aria-hidden="true"></i> Create a game</a> -
-                <a ui-sref="login"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Join a game</a>
-                <!--<p ng-if="user">You are connected with : {{user.userName}}</p>-->
-                <!--<a ng-click='disconnect()' ui-sref="login">Log out  <i class="fa fa-arrow-right" aria-hidden="true"></i></a>-->
+                <!--<button class="margin-1" ui-sref="group({roomId: room._id, room: room})">-->
+
+                <button ng-click="createGame(user._id)"><i class="fa fa-plus" aria-hidden="true"></i> Create a game</button> -
+                <button ng-click="joinGame()"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Join a game</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- User Description Modal -->
     <div class = "modal fade" id = "myModal" tabindex = "-1" role = "dialog"
          aria-labelledby = "myModalLabel" aria-hidden = "true">
 
@@ -70,6 +70,39 @@
             </div>
         </div>
     </div>
+
+<!--  Modal -->
+<div class = "modal fade" id = "ShowRoomsModal" tabindex = "-1" role = "dialog"
+     aria-labelledby = "myModalLabel" aria-hidden = "true">
+
+    <div class = "modal-dialog">
+        <div class = "modal-content">
+
+
+            <div class = "modal-header">
+                <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
+                    &times;
+                </button>
+
+                <h4 class = "modal-title" id = "myModalLabel2">
+                    Join a Game !
+                </h4>
+            </div>
+
+            <div class = "modal-body">
+            <div ng-if="rooms.length === 0">
+                Currently no game is open. . .
+                Please create a game.
+            </div>
+                <div ng-repeat="room in rooms">
+                    <button data-dismiss = "modal" aria-hidden = "true" ng-click="createGame(room.creator._id)">
+                        {{room.creator.userName}}'s Game
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 </body>
 

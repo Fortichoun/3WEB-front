@@ -86,6 +86,24 @@ angular.module('battleSup')
         });
         if (token === 1) return true;
       };
+      $scope.createGame = function (userId) {
+        $http.post(`http://${HOST_CONFIG.url}:${HOST_CONFIG.port}/api/rooms`, {
+          roomName: `Game with host ${$scope.user.userName}`,
+          user: userId,
+          typeOfRoom: 'games',
+        })
+          .then((response) => {
+            $scope.room = response.data;
+            $state.go('game', { roomId: response.data._id, room: response.data });
+          });
+      };
+      $scope.joinGame = function () {
+        $http.get(`http://${HOST_CONFIG.url}:${HOST_CONFIG.port}/api/rooms?typeOfRoom=games`)
+          .then((response) => {
+            $scope.rooms = response.data;
+            $('#ShowRoomsModal').modal();
+          });
+      };
     })
   .filter('enclosing', () => function (input) {
     const bold = {
